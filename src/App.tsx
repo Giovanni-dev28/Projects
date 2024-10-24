@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Banner from "./components/Banner";
+import "./css/App.css";
+import HouseList from "./components/HouseList";
+import House from "./components/House";
 
 function App() {
+  const [selectedHouse, setSelectedHouse] = useState(null);
+  const [addingHouse, setAddingHouse] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App">
+        <Banner
+          text="Home sales agency"
+          setSelectedHouse={setSelectedHouse}
+          setAddingHouse={setAddingHouse}
+        />
+        {selectedHouse ? (
+          <House house={selectedHouse} />
+        ) : (
+          <HouseList
+            selectedHouse={setSelectedHouse}
+            setAddingHouse={setAddingHouse}
+            addingHouse={addingHouse}
+          />
+        )}
+      </div>
+    </>
   );
 }
 

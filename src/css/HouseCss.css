@@ -1,0 +1,15 @@
+.HouseImage {
+  width: 500px;
+  height: 500px;
+}
+.headers {
+  color: darkblue;
+  font-style: italic;
+  align-items: left;
+}
+.text {
+  font-size: 20px;
+}
+.content {
+  text-align: left;
+}

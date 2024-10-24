@@ -1,0 +1,10 @@
+.rowContent {
+  text-align: left;
+  margin: 300px;
+}
+tr {
+  width: 300px;
+}
+td:nth-child(1) {
+  width: 40%;
+}

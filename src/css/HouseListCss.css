@@ -1,0 +1,22 @@
+.container {
+  place-items: center;
+  justify-content: center;
+}
+
+.tableHeader {
+  border: 3px solid black;
+  padding: 8px;
+  text-align: left;
+}
+th:nth-child(1),
+td:nth-child(1) {
+  width: 40%; /* First column width */
+}
+th:nth-child(2),
+td:nth-child(2) {
+  width: 35%; /* Second column width */
+}
+th:nth-child(3),
+td:nth-child(3) {
+  width: 25%; /* Third column width */
+}

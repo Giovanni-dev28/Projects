@@ -1,0 +1,14 @@
+.logo {
+  height: 150px;
+  cursor: pointer;
+}
+
+.title {
+  color: #ffa500;
+  font-size: 40px;
+  font-style: bold;
+}
+.bar {
+  place-items: center;
+  justify-content: center;
+}
