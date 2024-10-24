@@ -15,7 +15,7 @@ const Banner: React.FC<BannerPorps> = ({
   //Devo definire che il prop che sto passando è di tipo ReactNode
   return (
     <header className="row bar">
-      <div className="col-2 mt-3">
+      <div className="col-2 mt-3 mb-3">
         <img
           src={logo}
           alt="logo"

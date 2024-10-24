@@ -1,5 +1,8 @@
 .addingDiv {
-  background-color: orange;
+  background-color: #12355b;
+}
+.text {
+  font-size: 17px;
+  font-style: bold;
   color: white;
-  font-size: 13px;
 }

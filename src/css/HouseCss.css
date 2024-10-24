@@ -3,12 +3,13 @@
   height: 500px;
 }
 .headers {
-  color: darkblue;
+  color: #12355b;
   font-style: italic;
   align-items: left;
 }
 .text {
   font-size: 20px;
+  color: black;
 }
 .content {
   text-align: left;
