@@ -37,7 +37,7 @@ const AddHouse: React.FC<AddHouseProps> = ({
     setAddingHouse(false);
   };
   return (
-    <div>
+    <div className="general">
       <form onSubmit={addNewHouse}>
         <div className="row mt-4 content">
           <div className="col-2 mb-2 ">
@@ -53,7 +53,11 @@ const AddHouse: React.FC<AddHouseProps> = ({
             ></input>
           </div>
           <div className="col-1 mb-2 ">
-            <input type="submit" value="Adding new House"></input>
+            <input
+              type="submit"
+              value="Adding new House"
+              className="but"
+            ></input>
           </div>
         </div>
         <div className="row content">

@@ -12,7 +12,12 @@ td:nth-child(1) {
 label {
   font-size: 20px;
   font-style: bold;
+  color: #12355b;
 }
 td {
   width: 10px;
+}
+.but {
+  background-color: #12355b;
+  color: white;
 }

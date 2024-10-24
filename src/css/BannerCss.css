@@ -1,10 +1,11 @@
 .logo {
   height: 150px;
   cursor: pointer;
+  border-radius: 25%;
 }
 
 .title {
-  color: #ffa500;
+  color: #12355b;
   font-size: 40px;
   font-style: bold;
 }
