@@ -13,3 +13,8 @@
   place-items: center;
   justify-content: center;
 }
+.additionaText {
+  color: #12355b;
+  font-size: 12px;
+  font-style: bold;
+}

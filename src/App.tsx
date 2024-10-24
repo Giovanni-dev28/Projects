@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Banner from "./components/Banner";
 import "./css/App.css";
 import HouseList from "./components/HouseList";
@@ -12,6 +12,7 @@ function App() {
       <div className="App">
         <Banner
           text="Home sales agency"
+          additionaText="Click the logo to return to home"
           setSelectedHouse={setSelectedHouse}
           setAddingHouse={setAddingHouse}
         />
