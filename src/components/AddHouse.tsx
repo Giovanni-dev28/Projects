@@ -39,77 +39,76 @@ const AddHouse: React.FC<AddHouseProps> = ({
   return (
     <div>
       <form onSubmit={addNewHouse}>
-        <div className="col ml-5 mr-10">
-          <table>
-            <tbody className="rowContent">
-              <tr className="rowContent">
-                <td>House address:</td>
-                <td>
-                  <input
-                    type="text"
-                    name="addressF"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    placeholder="Insert the address"
-                    required
-                  ></input>
-                </td>
-                <td>
-                  <input type="submit" value="Add new House"></input>
-                </td>
-              </tr>
-              <tr className="rowContent">
-                <td>Owner of the house:</td>
-                <td>
-                  <input
-                    type="text"
-                    name="ownerF"
-                    value={owner}
-                    onChange={(e) => setOwner(e.target.value)}
-                    placeholder="Insert the owner "
-                    required
-                  ></input>
-                </td>
-              </tr>
-              <tr className="rowContent">
-                <td>Price of the house:</td>
-                <td>
-                  <input
-                    type="number"
-                    name="priceF"
-                    value={price}
-                    onChange={(e) => setPrice(parseInt(e.target.value))}
-                    min={1000}
-                    placeholder="Insert the price"
-                    required
-                  ></input>
-                </td>
-              </tr>
-              <tr className="rowContent">
-                <td>Url of the image of the house</td>
-                <td>
-                  <input
-                    type="text"
-                    name="imageF"
-                    value={image}
-                    placeholder="Insert the url image"
-                    onChange={(e) => setImage(e.target.value)}
-                  ></input>
-                </td>
-              </tr>
-              <tr className="rowContent">
-                <td>Description of the house</td>
-                <td>
-                  <textarea
-                    name="descriptionF"
-                    placeholder="Insert the description"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                  ></textarea>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div className="row mt-4 content">
+          <div className="col-2 mb-2 ">
+            <label>Address of the house</label>
+          </div>
+          <div className="col-4 mb-2 ">
+            <input
+              type="text"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              placeholder="Insert the address"
+              required
+            ></input>
+          </div>
+          <div className="col-1 mb-2 ">
+            <input type="submit" value="Adding new House"></input>
+          </div>
+        </div>
+        <div className="row content">
+          <div className="col-2 mb-2">
+            <label>Owner of the house</label>
+          </div>
+          <div className="col-4 mb-2">
+            <input
+              type="text"
+              value={owner}
+              onChange={(e) => setOwner(e.target.value)}
+              placeholder="Insert the owner"
+              required
+            ></input>
+          </div>
+        </div>
+        <div className="row content">
+          <div className="col-2 mb-2">
+            <label>Price of the house</label>
+          </div>
+          <div className="col-4 mb-2">
+            <input
+              type="number"
+              value={price}
+              onChange={(e) => setPrice(parseInt(e.target.value))}
+              placeholder="Insert the price"
+              min={1000}
+              required
+            ></input>
+          </div>
+        </div>
+        <div className="row content">
+          <div className="col-2 mb-2">
+            <label>Image of the house</label>
+          </div>
+          <div className="col-4 mb-2">
+            <input
+              type="text"
+              value={image}
+              onChange={(e) => setImage(e.target.value)}
+              placeholder="Insert the image url"
+            ></input>
+          </div>
+        </div>
+        <div className="row content">
+          <div className="col-2 mb-2">
+            <label>Description of the house</label>
+          </div>
+          <div className="col-4 mb-2">
+            <textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              placeholder="Insert the description of the house"
+            ></textarea>
+          </div>
         </div>
       </form>
     </div>
