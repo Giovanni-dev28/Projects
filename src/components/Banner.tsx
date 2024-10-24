@@ -12,7 +12,6 @@ const Banner: React.FC<BannerPorps> = ({
   setSelectedHouse,
   setAddingHouse,
 }) => {
-  //Devo definire che il prop che sto passando è di tipo ReactNode
   return (
     <header className="row bar">
       <div className="col-2 mt-3 mb-3">
