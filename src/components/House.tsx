@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { HousesContext } from "../pages/Home";
 import { useLocation } from "react-router-dom";
 import RemoveHouse from "./RemoveHouse";
+import Updatehouse from "./UpdateHouse";
 
 const min = 1;
 const max = 4;
@@ -66,7 +67,12 @@ const House = () => {
           </p>
         </div>
         <div className="row mt-5 ">
-          <RemoveHouse />
+          <div className="col">
+            <RemoveHouse />
+          </div>
+          <div className="col ml-5">
+            <Updatehouse />
+          </div>
         </div>
       </div>
     </div>
