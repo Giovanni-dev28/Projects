@@ -1,19 +1,23 @@
 import "../css/HouseRowCss.css";
 import React from "react";
 import { NumericFormat } from "react-number-format";
+import { useNavigate } from "react-router-dom";
 
 interface HouseRowProps {
   house: {
+    id: number;
     address: string;
     owner: string;
     price: number;
+    description: string;
   };
-  selectedHouse: Function;
 }
 
-const HouseRow: React.FC<HouseRowProps> = ({ house, selectedHouse }) => {
+const HouseRow: React.FC<HouseRowProps> = ({ house }) => {
+  const navigate = useNavigate();
+  const link = `selectedHouse/view?id:${house.id}`;
   return (
-    <tr onClick={() => selectedHouse(house)}>
+    <tr>
       <td className="tableContent">{house.address}</td>
       <td className="tableContent">{house.owner}</td>
       <td className="tableContent">
@@ -23,6 +27,13 @@ const HouseRow: React.FC<HouseRowProps> = ({ house, selectedHouse }) => {
           thousandSeparator={true}
           prefix={"$"}
         />
+        <button
+          style={{ float: "right" }}
+          className="buttonView"
+          onClick={() => navigate(link)}
+        >
+          View House
+        </button>
       </td>
     </tr>
   );

@@ -1,33 +1,32 @@
-import { useState } from "react";
-import Banner from "../components/Banner";
-import "../css/App.css";
-import HouseList from "../components/HouseList";
-import House from "../components/House";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Error from "./Error";
+import SelectedHouse from "./SelectedHouse";
+import Home from "./Home";
+import AddingNewHouse from "./AddingNewHouse";
 
-function App() {
-  const [selectedHouse, setSelectedHouse] = useState(null);
-  const [addingHouse, setAddingHouse] = useState(false);
+const App = () => {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />,
+      errorElement: <Error />,
+    },
+    {
+      path: "/selectedHouse/view",
+      element: <SelectedHouse />,
+      errorElement: <Error />,
+    },
+    {
+      path: "/insertNewHouse",
+      element: <AddingNewHouse />,
+      errorElement: <Error />,
+    },
+  ]);
   return (
-    <>
-      <div className="App">
-        <Banner
-          text="House sales agency"
-          additionaText="Click the logo to return to home"
-          setSelectedHouse={setSelectedHouse}
-          setAddingHouse={setAddingHouse}
-        />
-        {selectedHouse ? (
-          <House house={selectedHouse} />
-        ) : (
-          <HouseList
-            selectedHouse={setSelectedHouse}
-            setAddingHouse={setAddingHouse}
-            addingHouse={addingHouse}
-          />
-        )}
-      </div>
-    </>
+    <div>
+      <RouterProvider router={router} />
+    </div>
   );
-}
+};
 
 export default App;
