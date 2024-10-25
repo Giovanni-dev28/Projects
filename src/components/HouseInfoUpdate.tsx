@@ -7,6 +7,7 @@ import house4 from "../images/house4.jpg";
 import { useContext } from "react";
 import { HousesContext } from "../pages/Home";
 import { useLocation } from "react-router-dom";
+import { useState } from "react";
 
 const min = 1;
 const max = 4;
@@ -32,6 +33,9 @@ const HouseInfoUpdate = () => {
   );
 
   const house = housesCont.houses.find((h) => h.id === id);
+
+  const [description, setDescription] = useState(house?.description);
+  const [price, setPrice] = useState(house?.price);
   return (
     <div className="row">
       <div className="col-sm-5 mt-10 houseImg">
@@ -44,12 +48,10 @@ const HouseInfoUpdate = () => {
       <div className="col-sm-6 mt-20 content">
         <div className="row mt-5">
           <h2 className="headers">Description of the house</h2>
-          <p className="text">
-            {house ? house.description : "Description not found"}
-          </p>
+          <p className="text">{description}</p>
         </div>
         <div className="row">
-          <h2 className="headers">Price</h2>
+          <h2 className="headers">{price}</h2>
           <p className="text">
             <NumericFormat
               value={house ? house.price.toFixed(2) : 0}
@@ -59,6 +61,10 @@ const HouseInfoUpdate = () => {
             />
           </p>
         </div>
+        {
+          //TODO create a form that change the description that is visible
+        }
+        <div className="row mt-2"></div>
       </div>
     </div>
   );
