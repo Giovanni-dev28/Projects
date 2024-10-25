@@ -7,8 +7,6 @@ import house4 from "../images/house4.jpg";
 import { useContext } from "react";
 import { HousesContext } from "../pages/Home";
 import { useLocation } from "react-router-dom";
-import RemoveHouse from "./RemoveHouse";
-import UpdateButton from "./UpdateButton";
 
 const min = 1;
 const max = 4;
@@ -25,7 +23,7 @@ const choseImage = () => {
       return house4;
   }
 };
-const House = () => {
+const HouseInfoUpdate = () => {
   const housesCont = useContext(HousesContext);
   const url = useLocation();
   const parameter = "";
@@ -61,17 +59,9 @@ const House = () => {
             />
           </p>
         </div>
-        <div className="row mt-5 ">
-          <div className="col">
-            <RemoveHouse />
-          </div>
-          <div className="col ml-5">
-            <UpdateButton />
-          </div>
-        </div>
       </div>
     </div>
   );
 };
 
-export default House;
+export default HouseInfoUpdate;
