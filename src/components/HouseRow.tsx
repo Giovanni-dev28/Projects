@@ -1,4 +1,4 @@
-import "../css/HouseRowCss.css";
+import "../css/HouseRow.css";
 import React from "react";
 import { NumericFormat } from "react-number-format";
 import { useNavigate } from "react-router-dom";
