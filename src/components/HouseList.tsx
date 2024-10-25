@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import "../css/HouseListCss.css";
+import "../css/HouseList.css";
 import HouseRowMemo from "./HouseRow";
 
 import { HousesContext } from "../pages/Home";

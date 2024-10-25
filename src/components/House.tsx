@@ -1,4 +1,4 @@
-import "../css/HouseCss.css";
+import "../css/House.css";
 import { NumericFormat } from "react-number-format";
 import house1 from "../images/house1.jpg";
 import house2 from "../images/house2.jpg";
@@ -7,6 +7,7 @@ import house4 from "../images/house4.jpg";
 import { useContext } from "react";
 import { HousesContext } from "../pages/Home";
 import { useLocation } from "react-router-dom";
+import RemoveHouse from "./RemoveHouse";
 
 const min = 1;
 const max = 4;
@@ -63,6 +64,9 @@ const House = () => {
               prefix={"$"}
             />
           </p>
+        </div>
+        <div className="row mt-5 ">
+          <RemoveHouse />
         </div>
       </div>
     </div>

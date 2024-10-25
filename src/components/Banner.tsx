@@ -1,4 +1,4 @@
-import "../css/BannerCss.css";
+import "../css/Banner.css";
 import logo from "../images/logo.jpeg";
 import React from "react";
 

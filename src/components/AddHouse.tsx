@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import "../css/AddHouseCss.css";
+import "../css/AddHouse.css";
 import { HousesContext } from "../pages/Home";
 import { useNavigate } from "react-router-dom";
 
