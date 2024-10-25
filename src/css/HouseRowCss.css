@@ -4,3 +4,7 @@
   text-align: left;
   cursor: pointer;
 }
+.buttonView {
+  background-color: #12355b;
+  color: white;
+}

@@ -5,8 +5,8 @@ import React from "react";
 interface BannerPorps {
   text: string;
   additionaText?: string;
-  setSelectedHouse: Function;
-  setAddingHouse: Function;
+  setSelectedHouse?: Function;
+  setAddingHouse?: Function;
 }
 
 const Banner: React.FC<BannerPorps> = ({
@@ -15,21 +15,14 @@ const Banner: React.FC<BannerPorps> = ({
   setSelectedHouse,
   setAddingHouse,
 }) => {
-  const imgClicked = () => {
+  /* const imgClicked = () => {
     setSelectedHouse(null);
     setAddingHouse(false);
-  };
+  }; */
   return (
     <header className="row bar">
       <div className="col-2 mt-3 mb-3">
-        <img
-          src={logo}
-          alt="logo"
-          className="logo"
-          onClick={() => {
-            imgClicked();
-          }}
-        ></img>
+        <img src={logo} alt="logo" className="logo"></img>
       </div>
       <div className="col-4 mt-3">
         <label className="title">{text}</label>

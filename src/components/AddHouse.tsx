@@ -1,41 +1,30 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "../css/AddHouseCss.css";
+import { HousesContext } from "../pages/Home";
+import { useNavigate } from "react-router-dom";
 
-interface House {
-  id: number;
-  address: string;
-  owner: string;
-  price: number;
-  image: string;
-  description: string;
-}
-interface AddHouseProps {
-  setHouses: Function;
-  houses: Array<House>;
-  setAddingHouse: Function;
-}
-const AddHouse: React.FC<AddHouseProps> = ({
-  setHouses,
-  houses,
-  setAddingHouse,
-}) => {
+const AddHouse = () => {
   const [address, setAddress] = useState("");
   const [owner, setOwner] = useState("");
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
+  const housesCont = useContext(HousesContext);
   const addNewHouse = () => {
     const newHouse = {
-      id: houses.length + 1,
+      id: housesCont.houses.length + 1,
       address: address,
       owner: owner,
       price: price,
       image: image,
       description: description,
     };
-    houses.push(newHouse);
-    setAddingHouse(false);
+    housesCont.setHouses([...housesCont.houses, newHouse]);
+    navigate(link);
   };
+  const navigate = useNavigate();
+  const link = "/";
+
   return (
     <div className="general">
       <form onSubmit={addNewHouse}>

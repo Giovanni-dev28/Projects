@@ -1,14 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import "../css/AddingCss.css";
 
-interface AddingProps {
-  setAdding: Function;
-}
-
-const Adding: React.FC<AddingProps> = ({ setAdding }) => {
+const Adding = () => {
+  const navigate = useNavigate();
+  const link = "/insertNewHouse";
   return (
-    <button onClick={() => setAdding(true)} className="addingDiv mt-4">
-      <label className="label">Insert new Home</label>
-    </button>
+    <div className="addingDiv mt-4" onClick={() => navigate(link)}>
+      <label className="label">Insert new House</label>
+    </div>
   );
 };
 export default Adding;
