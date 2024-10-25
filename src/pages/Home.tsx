@@ -9,30 +9,30 @@ interface House {
   price: number;
   description: string;
 }
+const data = [
+  {
+    id: 1,
+    address: "Via Giuseppe Frua 39F",
+    owner: "Sciacca Claudio",
+    price: 95000,
+    description: "Home with garden",
+  },
+  {
+    id: 2,
+    address: "Via San Bernardino 27",
+    owner: "Bana Maria Grazia",
+    price: 137000,
+    description: "House with pool",
+  },
+];
 const HousesContext = createContext<{
   houses: House[];
   setHouses: React.Dispatch<React.SetStateAction<House[]>>;
 }>({
-  houses: [],
+  houses: data,
   setHouses: () => {},
 });
 const Home = () => {
-  const data = [
-    {
-      id: 1,
-      address: "Via Giuseppe Frua 39F",
-      owner: "Sciacca Claudio",
-      price: 95000,
-      description: "Home with garden",
-    },
-    {
-      id: 2,
-      address: "Via San Bernardino 27",
-      owner: "Bana Maria Grazia",
-      price: 137000,
-      description: "House with pool",
-    },
-  ];
   const [houses, setHouses] = useState<House[]>(data);
   return (
     <div>

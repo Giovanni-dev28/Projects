@@ -26,8 +26,17 @@ const choseImage = () => {
 const House = () => {
   const housesCont = useContext(HousesContext);
   const url = useLocation();
-  const id = Number(new URLSearchParams(url.search).get("id"));
-  const house = housesCont.houses.find((h) => (h.id = id));
+  const parameter = "";
+  const id = Number(
+    new URLSearchParams(url.search).get("id")?.toString() || parameter
+  );
+
+  const house = housesCont.houses.find((h) => h.id == id);
+  //console.log(housesCont);
+  console.log(id);
+  /*   console.log(new URLSearchParams(url.search).toString());
+  console.log(url); */
+  console.log("Fine");
   return (
     <div className="row">
       <div className="col-sm-5 mt-10 houseImg">
