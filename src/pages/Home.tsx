@@ -25,18 +25,22 @@ const data = [
     description: "House with pool",
   },
 ];
+
 const HousesContext = createContext<{
   houses: House[];
-  setHouses: React.Dispatch<React.SetStateAction<House[]>>;
 }>({
   houses: data,
-  setHouses: () => {},
 });
 const Home = () => {
-  const [houses, setHouses] = useState<House[]>(data);
+  const [houses] = useState<House[]>(data);
+  const HousesContext = createContext<{
+    houses: House[];
+  }>({
+    houses: data,
+  });
   return (
     <div>
-      <HousesContext.Provider value={{ houses, setHouses }}>
+      <HousesContext.Provider value={{ houses }}>
         <Banner text="House sales agency"></Banner>
         <HouseList></HouseList>
       </HousesContext.Provider>
