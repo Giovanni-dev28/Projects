@@ -7,19 +7,19 @@ const AddHouse = () => {
   const [address, setAddress] = useState("");
   const [owner, setOwner] = useState("");
   const [price, setPrice] = useState(0);
-  const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
   const housesCont = useContext(HousesContext);
-  const addNewHouse = () => {
+  const addNewHouse = async (event: any) => {
+    event.preventDefault();
     const newHouse = {
       id: housesCont.houses.length + 1,
       address: address,
       owner: owner,
       price: price,
-      image: image,
       description: description,
     };
-    housesCont.setHouses([...housesCont.houses, newHouse]);
+    housesCont.houses.push(newHouse);
+    console.log(housesCont);
     navigate(link);
   };
   const navigate = useNavigate();
@@ -42,11 +42,7 @@ const AddHouse = () => {
             ></input>
           </div>
           <div className="col-1 mb-2 ">
-            <input
-              type="submit"
-              value="Adding new House"
-              className="but"
-            ></input>
+            <input type="submit" className="but" value="Add new House"></input>
           </div>
         </div>
         <div className="row content">
@@ -75,19 +71,6 @@ const AddHouse = () => {
               placeholder="Insert the price"
               min={1000}
               required
-            ></input>
-          </div>
-        </div>
-        <div className="row content">
-          <div className="col-2 mb-2">
-            <label>Image of the house</label>
-          </div>
-          <div className="col-4 mb-2">
-            <input
-              type="text"
-              value={image}
-              onChange={(e) => setImage(e.target.value)}
-              placeholder="Insert the image url"
             ></input>
           </div>
         </div>

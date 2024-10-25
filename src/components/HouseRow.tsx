@@ -15,7 +15,7 @@ interface HouseRowProps {
 
 const HouseRow: React.FC<HouseRowProps> = ({ house }) => {
   const navigate = useNavigate();
-  const link = `selectedHouse/view?id:${house.id}`;
+  const link = `selectedHouse/view?id=${house.id}`;
   return (
     <tr>
       <td className="tableContent">{house.address}</td>
