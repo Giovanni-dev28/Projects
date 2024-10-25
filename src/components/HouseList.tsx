@@ -1,7 +1,7 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import "../css/HouseListCss.css";
 import HouseRowMemo from "./HouseRow";
-import HouseRow from "./HouseRow";
+//import HouseRow from "./HouseRow";
 import Adding from "./Adding";
 import AddHouse from "./AddHouse";
 
@@ -51,7 +51,7 @@ const HouseList: React.FC<HouseListProps> = ({
             <tbody>
               {houses.map((h) => {
                 return (
-                  <HouseRow
+                  <HouseRowMemo
                     key={h.id}
                     house={h}
                     selectedHouse={selectedHouse}

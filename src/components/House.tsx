@@ -1,4 +1,5 @@
 import "../css/HouseCss.css";
+import { NumericFormat } from "react-number-format";
 interface HouseProps {
   house: {
     description: string;
@@ -23,7 +24,14 @@ const House: React.FC<HouseProps> = ({ house }) => {
         </div>
         <div className="row">
           <h2 className="headers">Price</h2>
-          <p className="text">{house.price}</p>
+          <p className="text">
+            <NumericFormat
+              value={house.price.toFixed(2)}
+              displayType={"text"}
+              thousandSeparator={true}
+              prefix={"$"}
+            />
+          </p>
         </div>
       </div>
     </div>
