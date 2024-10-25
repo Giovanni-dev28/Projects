@@ -31,7 +31,7 @@ const House = () => {
     new URLSearchParams(url.search).get("id")?.toString() || parameter
   );
 
-  const house = housesCont.houses.find((h) => h.id == id);
+  const house = housesCont.houses.find((h) => h.id === id);
   //console.log(housesCont);
   console.log(id);
   /*   console.log(new URLSearchParams(url.search).toString());
