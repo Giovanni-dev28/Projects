@@ -4,11 +4,11 @@ import house1 from "../images/house1.jpg";
 import house2 from "../images/house2.jpg";
 import house3 from "../images/house3.jpg";
 import house4 from "../images/house4.jpg";
-import { useContext } from "react";
+import { useContext /* createContext */ } from "react";
 import { HousesContext } from "../pages/Home";
 import { useLocation } from "react-router-dom";
 import RemoveHouse from "./RemoveHouse";
-import Updatehouse from "./UpdateHouse";
+import UpdateButton from "./UpdateButton";
 
 const min = 1;
 const max = 4;
@@ -25,6 +25,12 @@ const choseImage = () => {
       return house4;
   }
 };
+
+/* const imageContext = createContext<{
+  image: number;
+}>({
+  image: 0,
+}); */
 const House = () => {
   const housesCont = useContext(HousesContext);
   const url = useLocation();
@@ -34,11 +40,6 @@ const House = () => {
   );
 
   const house = housesCont.houses.find((h) => h.id === id);
-  //console.log(housesCont);
-  console.log(id);
-  /*   console.log(new URLSearchParams(url.search).toString());
-  console.log(url); */
-  console.log("Fine");
   return (
     <div className="row">
       <div className="col-sm-5 mt-10 houseImg">
@@ -71,7 +72,7 @@ const House = () => {
             <RemoveHouse />
           </div>
           <div className="col ml-5">
-            <Updatehouse />
+            <UpdateButton />
           </div>
         </div>
       </div>
