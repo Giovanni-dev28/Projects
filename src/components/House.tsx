@@ -4,7 +4,7 @@ import house1 from "../images/house1.jpg";
 import house2 from "../images/house2.jpg";
 import house3 from "../images/house3.jpg";
 import house4 from "../images/house4.jpg";
-import { useContext } from "react";
+import { useContext /* createContext */ } from "react";
 import { HousesContext } from "../pages/Home";
 import { useLocation } from "react-router-dom";
 import RemoveHouse from "./RemoveHouse";
@@ -25,6 +25,12 @@ const choseImage = () => {
       return house4;
   }
 };
+
+/* const imageContext = createContext<{
+  image: number;
+}>({
+  image: 0,
+}); */
 const House = () => {
   const housesCont = useContext(HousesContext);
   const url = useLocation();
