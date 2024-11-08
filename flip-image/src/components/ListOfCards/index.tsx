@@ -14,9 +14,9 @@ const ListOfCards: React.FC<ListOfCardsProps> = ({ card1, card2 }) => {
       <div>
         <Card cards={card1} />
       </div>
-      <div>
+      {/* <div>
         <Card cards={card2} />
-      </div>
+      </div> */}
     </div>
   );
 };

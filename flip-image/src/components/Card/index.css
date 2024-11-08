@@ -2,14 +2,15 @@
   width: 400px;
   height: 348px;
   perspective: 1000px;
+  border: solid 1px black;
 }
 
 .flip-box-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  text-align: center;
   transform-style: preserve-3d;
+  transition: transform 0.8s;
 }
 
 .flip-box {
@@ -17,13 +18,23 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  transition: transform 0.8s; /* Tempo dell'animazione */
 }
 
-.card .flip-box.rotateRight {
+.back .front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+.back {
   transform: rotateY(180deg);
 }
 
-.card .flip-box.rotateLeft {
+.rotateRight {
+  transform: rotateY(180deg);
+}
+
+.rotateLeft {
   transform: rotateY(-180deg);
 }
