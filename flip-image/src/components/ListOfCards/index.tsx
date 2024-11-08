@@ -1,22 +1,35 @@
+import { useState, useEffect } from "react";
 import Card from "../Card";
 interface Image {
   src: string;
   alt: string;
 }
 interface ListOfCardsProps {
-  card1: Array<Image>;
-  card2: Array<Image>;
+  card: Array<Image>;
 }
 
-const ListOfCards: React.FC<ListOfCardsProps> = ({ card1, card2 }) => {
+const ListOfCards: React.FC<ListOfCardsProps> = ({ card }) => {
+  //Eseguito solo la prima volta dopo il render, dato che non ha dipendenze
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeydown);
+    return () => window.removeEventListener("keydown", handleKeydown);
+  });
+
+  const handleKeydown = (event: KeyboardEvent) => {
+    if (event.key === "ArrowRight") {
+    } else if (event.key === "ArrowLeft") {
+    }
+  };
+
   return (
     <div>
       <div>
-        <Card cards={card1} />
+        {/* <Card
+          front={card[indexFront]}
+          back={card[indexBack]}
+          rotation={rotation}
+        /> */}
       </div>
-      {/* <div>
-        <Card cards={card2} />
-      </div> */}
     </div>
   );
 };

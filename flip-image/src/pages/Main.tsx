@@ -1,4 +1,5 @@
 import ListOfCards from "../components/ListOfCards";
+import Padre from "../components/padre";
 import image1 from "../image/image1.png";
 import image2 from "../image/image2.png";
 import image3 from "../image/image3.png";
@@ -10,16 +11,16 @@ interface Image {
   src: string;
   alt: string;
 }
-interface ListImage {
-  card1: Array<Image>;
-  card2: Array<Image>;
-}
 const Main = () => {
-  const first: Array<Image> = [
+  const first: Image[] = [
     { src: image1, alt: "Image1" },
+    { src: rear, alt: "Rear" },
     { src: image2, alt: "Image2" },
+    { src: rear, alt: "Rear" },
     { src: image3, alt: "Image3" },
+    { src: rear, alt: "Rear" },
     { src: image4, alt: "Image4" },
+    { src: rear, alt: "Rear" },
     { src: image5, alt: "Image5" },
     { src: rear, alt: "Rear" },
   ];
@@ -27,10 +28,11 @@ const Main = () => {
     { src: image2, alt: "Image2" },
     { src: rear, alt: "Rear" },
   ];
-  const list: ListImage = { card1: first, card2: second };
   return (
     <div>
-      <ListOfCards {...list} />
+      {/* <ListOfCards card={first} /> */}
+      {/* <ListOfCards card={second} /> */}
+      <Padre />
     </div>
   );
 };
