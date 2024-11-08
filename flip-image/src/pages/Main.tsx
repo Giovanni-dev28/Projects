@@ -24,15 +24,15 @@ const Main = () => {
     { src: image5, alt: "Image5" },
     { src: rear, alt: "Rear" },
   ];
-  const second: Array<Image> = [
+  /* const second: Array<Image> = [
     { src: image2, alt: "Image2" },
     { src: rear, alt: "Rear" },
-  ];
+  ]; */
   return (
     <div>
-      {/* <ListOfCards card={first} /> */}
+      <ListOfCards card={first} />
       {/* <ListOfCards card={second} /> */}
-      <Padre />
+      {/* <Padre images={first} /> */}
     </div>
   );
 };

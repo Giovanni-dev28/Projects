@@ -15,11 +15,11 @@
   transition: transform 0.8s;
 }
 
-.flip-box-inner-rotateRight {
+.flip-box-inner.rotateRight {
   transform: rotateY(180deg);
 }
 
-.flip-box-inner-rotateLeft {
+.flip-box-inner.rotateLeft {
   transform: rotateY(-180deg);
 }
 

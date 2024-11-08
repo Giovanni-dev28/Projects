@@ -1,19 +1,36 @@
 import React from "react";
 import "./index.css";
-import rear from "../../image/rear.png";
 
-interface ImageDisplayProp {
-  image: { src: string; alt: string };
-  flip: boolean;
-  onAnimationEnd: React.Dispatch<React.SetStateAction<any>>;
+interface ImageDisplayProps {
+  image: {
+    src: string;
+    alt: string;
+  };
+  rotationDirection: "right" | "left";
+  rotationPhase: "start" | "complete";
 }
-const ImageDisplay = ({ image, flip, onAnimationEnd }: ImageDisplayProp) => {
+
+const ImageDisplay: React.FC<ImageDisplayProps> = ({
+  image,
+  rotationDirection,
+  rotationPhase,
+}) => {
+  const rotationClass =
+    rotationDirection === "right"
+      ? rotationPhase === "start"
+        ? "rotate-right"
+        : "rotate-right-complete"
+      : rotationPhase === "start"
+      ? "rotate-left"
+      : "rotate-left-complete";
+
   return (
-    <div
-      className={`image-container ${flip ? "flip" : ""}`}
-      onAnimationEnd={onAnimationEnd}
-    >
-      <img src={image.src} alt={image.alt} />
+    <div className="image-container">
+      <img
+        src={image.src}
+        alt={image.alt}
+        className={`image-flip ${rotationClass}`}
+      />
     </div>
   );
 };

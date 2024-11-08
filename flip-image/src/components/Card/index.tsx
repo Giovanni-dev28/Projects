@@ -1,5 +1,5 @@
-import "./index.css";
 import { useState, useEffect } from "react";
+import "./index.css";
 
 interface Image {
   src: string;
@@ -35,18 +35,16 @@ const Card: React.FC<CardProps> = (prop) => {
   );
   return (
     <>
-      <div className="card">
+      <div className="flip-box">
         <div
-          className={`flip-box-inner- prop.rotation === "right" ? "rotateRight" : ""
-          }${prop.rotation === "left" ? "rotateLeft" : ""}`}
+          className={`flip-box-inner ${
+            prop.rotation === "rigth" ? "rotateRight" : ""
+          } ${prop.rotation === "left" ? "rotateLeft" : ""}`}
         >
           <div className="flip-box-front">
             <img src={prop.front.src} alt={prop.front.alt}></img>
           </div>
-          <div
-            className={`flip-box-back prop.rotation === "right" ? "rotateRight" : ""
-          }${prop.rotation === "left" ? "rotateLeft" : ""}`}
-          >
+          <div className="flip-box-back">
             <img src={prop.back.src} alt={prop.back.alt}></img>
           </div>
         </div>
