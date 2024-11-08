@@ -2,7 +2,6 @@
   width: 400px;
   height: 348px;
   perspective: 1000px;
-  /* border: black 1px solid; */
 }
 
 .flip-box-inner {
@@ -10,25 +9,21 @@
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 0.8s;
   transform-style: preserve-3d;
 }
 
-.card:hover .flip-box-inner {
-  /*Se non inserissi .flip-box-inner si ruoterebbe il front della carta e non l'intera carta*/
-  transform: rotateY(180deg);
-}
-
-.flip-box-front,
-.flip-box-back {
+.flip-box {
   position: absolute;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  /*Si deve mettere uno stesso colore di background del container che contiene la carta */
+  transition: transform 0.8s; /* Tempo dell'animazione */
 }
 
-.flip-box-back {
+.card .flip-box.rotateRight {
   transform: rotateY(180deg);
+}
+
+.card .flip-box.rotateLeft {
+  transform: rotateY(-180deg);
 }
