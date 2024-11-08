@@ -1,5 +1,5 @@
-import "./index.css";
 import { useState, useEffect } from "react";
+import "./index.css";
 
 interface Image {
   src: string;
@@ -7,83 +7,45 @@ interface Image {
 }
 
 interface CardProps {
-  cards: Array<Image>;
+  front: Image;
+  back: Image;
+  rotation: string | null;
 }
 
 const Card: React.FC<CardProps> = (prop) => {
-  const length = prop.cards.length;
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [nextIndex, setNextIndex] = useState(1);
-  const [prevIndex, setPrevIndex] = useState(0);
   const [isRotating, setIsRotating] = useState(false);
-  const [direction, setDirection] = useState<"right" | "left" | null>(null);
 
-  useEffect(() => {
-    const handleKeydown = (event: KeyboardEvent) => {
-      if (isRotating) return; // Evita di attivare altre animazioni se già in corso
-
-      if (event.key === "ArrowRight" && currentIndex + 1 < length) {
-        setDirection("right");
-        setNextIndex(currentIndex + 1);
-        setIsRotating(true);
-      } else if (event.key === "ArrowLeft" && currentIndex - 1 >= 0) {
-        setDirection("left");
-        setPrevIndex(currentIndex - 1);
-        setIsRotating(true);
-      }
-    };
-
-    window.addEventListener("keydown", handleKeydown);
-    return () => window.removeEventListener("keydown", handleKeydown);
-  }, [currentIndex, isRotating, length]);
-
+  //Si esegue ogni volta che i valori delle dipendenze cambiano
   useEffect(() => {
     if (!isRotating) return;
 
     const timeout = setTimeout(() => {
-      if (direction === "right") {
-        setPrevIndex(currentIndex);
-        setCurrentIndex(nextIndex);
-      } else if (direction === "left") {
-        setNextIndex(currentIndex);
-        setCurrentIndex(prevIndex);
-      }
       setIsRotating(false);
-      setDirection(null);
     }, 800); // Durata dell'animazione
-
+    prop.rotation = null;
     return () => clearTimeout(timeout);
-  }, [isRotating, nextIndex, prevIndex, currentIndex, direction]);
-
+  }, [isRotating, prop]);
+  console.log(
+    "ImageFront: ",
+    prop.front.alt,
+    " ImageBack: ",
+    prop.back.alt,
+    " Rotation: ",
+    prop.rotation
+  );
   return (
     <>
-      <div className="card">
+      <div className="flip-box">
         <div
-          className={`flip-box-inner flip-box-inner ${
-            direction === "right" ? "rotateRight" : ""
-          } ${direction === "left" ? "rotateLeft" : ""}`}
+          className={`flip-box-inner ${
+            prop.rotation === "rigth" ? "rotateRight" : ""
+          } ${prop.rotation === "left" ? "rotateLeft" : ""}`}
         >
-          <div className="flip-box front">
-            <img
-              src={prop.cards[currentIndex].src}
-              alt={prop.cards[currentIndex].alt}
-            ></img>
+          <div className="flip-box-front">
+            <img src={prop.front.src} alt={prop.front.alt}></img>
           </div>
-          <div className="flip-box back">
-            {isRotating && direction === "right" && (
-              <img
-                className="rotateRight"
-                src={prop.cards[nextIndex].src}
-                alt={prop.cards[nextIndex].alt}
-              ></img>
-            )}
-            {isRotating && direction === "left" && (
-              <img
-                className="rotateLeft"
-                src={prop.cards[prevIndex].src}
-                alt={prop.cards[prevIndex].alt}
-              ></img>
-            )}
+          <div className="flip-box-back">
+            <img src={prop.back.src} alt={prop.back.alt}></img>
           </div>
         </div>
       </div>

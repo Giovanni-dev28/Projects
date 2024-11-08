@@ -1,0 +1,27 @@
+.image-container {
+  perspective: 1000px;
+}
+
+.image-flip {
+  width: 100%;
+  height: auto;
+  transition: transform 0.6s;
+  backface-visibility: hidden; /* Nasconde il retro dell'immagine durante la rotazione */
+}
+
+.rotate-right,
+.rotate-left {
+  transform: rotateY(
+    90deg
+  ); /* Fermiamo la rotazione a 90 gradi, poi cambiamo l'immagine */
+}
+
+.rotate-right-complete {
+  transform: rotateY(
+    180deg
+  ); /* Completiamo la rotazione per la nuova immagine */
+}
+
+.rotate-left-complete {
+  transform: rotateY(-180deg);
+}
