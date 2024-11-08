@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Card from "../Card";
-import { eventNames } from "process";
 interface Image {
   src: string;
   alt: string;
@@ -10,40 +9,40 @@ interface ListOfCardsProps {
 }
 
 const ListOfCards: React.FC<ListOfCardsProps> = ({ card }) => {
-  const [indexPreView, setIndexPreView] = useState(0);
-  const [indexView, setIndexView] = useState(1);
+  const [indexFront, setIndexFront] = useState(0);
+  const [indexBack, setIndexBack] = useState(0);
+  const [index, setIndex] = useState(0);
+
   const [rotation, setRotation] = useState<"right" | "left" | null>(null);
 
   //Eseguito solo la prima volta dopo il render, dato che non ha dipendenze
   useEffect(() => {
-    window.addEventListener("keydown", handleKeydown);
-    return () => window.removeEventListener("keydown", handleKeydown);
+    window.addEventListener("keydown", useHandleKeydown);
+    return () => window.removeEventListener("keydown", useHandleKeydown);
   });
 
-  const handleKeydown = (event: KeyboardEvent) => {
-    if (event.key === "ArrowRight" && indexPreView + 1 < card.length) {
-      setIndexView(indexPreView + 1);
+  const useHandleKeydown = (event: KeyboardEvent) => {
+    if (event.key === "ArrowRight" && index + 1 < card.length) {
+      setIndexFront(index);
       setRotation("right");
-    } else if (event.key === "ArrowLeft" && indexPreView - 1 > -1) {
-      setIndexView(indexPreView - 1);
+      setIndexBack(index + 1);
+      setIndex(index + 1);
+      console.log("destra", " ", index, " ", indexFront, " ", indexBack);
+    } else if (event.key === "ArrowLeft" && index - 1 > -1) {
       setRotation("left");
+      setIndexBack(index - 1);
+      setIndex((p) => p - 1);
+      console.log("sinistra", " ", index, " ", indexFront, " ", indexBack);
     }
   };
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIndexPreView((previous) => previous + 1);
-    }, 800);
-    return () => clearTimeout(timeout);
-  }, [rotation]);
 
   return (
     <div>
       <div>
         {
           <Card
-            front={card[indexPreView]}
-            back={card[indexView]}
+            front={card[indexFront]}
+            back={card[indexBack]}
             rotation={rotation}
           />
         }
