@@ -1,0 +1,14 @@
+.image-container {
+  perspective: 1000px;
+  /*   width: 400px;
+  height: 692px; */
+  /*   background-color: #ddf7ff;
+  border-radius: 20px;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.1); */
+}
+
+.image-flip {
+  width: 100%;
+  height: auto;
+  transition: transform 1s ease-in-out;
+}
